@@ -2,3 +2,12 @@
 html{
     scroll-behavior: smooth;
 }
+
+.conteudo-titulo{
+
+    font-size: 54pt;
+
+}
+.conteudo-subtitulo{
+    font-size: 18pt;
+}
