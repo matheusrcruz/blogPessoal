@@ -14,33 +14,36 @@ export class TemaComponent implements OnInit {
   tema: Tema = new Tema();
   listaTemas: Tema[];
 
-   //Injetar depedência
+   // Injetar depedência
   constructor(
     private router: Router,
     private temaService: TemaService
   ) { }
-    //Comportamentos do component fica no init
+    // Comportamentos do component fica no init
+  // tslint:disable-next-line: typedef
   ngOnInit(){
-    if(environment.token == ''){
+    if (environment.token === ''){
       alert('Sua sessão expirou faça login novamente');
-      this.router.navigate(['/entrar'])
+      this.router.navigate( ['/entrar'] );
     }
     this.findAllTemas();
   }
 
+  // tslint:disable-next-line: typedef
   findAllTemas(){
-    this.temaService.getAllTema().subscribe((resp: Tema[])=> {
-       this.listaTemas = resp
-    })
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
+       this.listaTemas = resp;
+    });
 
   }
+  // tslint:disable-next-line: typedef
   cadastrar(){
-    this.temaService.postTema(this.tema).subscribe((resp: Tema)=> {
-      this.tema = resp
+    this.temaService.postTema(this.tema).subscribe((resp: Tema) => {
+      this.tema = resp;
       alert('Tema cadastrado com sucesso!');
       this.findAllTemas();
       this.tema = new Tema();
-    })
+    });
   }
 
 }
