@@ -9,19 +9,20 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root'
 })
 export class AuthService {
-  //Inicie o modulo HttpClient na assinatura do constuctor
+  // Inicie o modulo HttpClient na assinatura do constuctor
   constructor(private http: HttpClient) { }
   // Observable Olhe userLogin
-          //[Sintaxe Metodo, alias: objeto ] 
-  entrar(userLogin: UserLogin): Observable<UserLogin>{//refactor template string
-    return this.http.post<UserLogin>('http://localhost:8080/usuarios/logar', userLogin)
+          // [Sintaxe Metodo, alias: objeto ]
+  entrar(userLogin: UserLogin): Observable<UserLogin>{// refactor template string
+    return this.http.post<UserLogin>('http://localhost:8080/usuarios/logar', userLogin);
   }
   cadastrar(user: User): Observable<User>{
-    return this.http.post<User>('http://localhost:8080/usuarios/cadastrar', user)
+    return this.http.post<User>('http://localhost:8080/usuarios/cadastrar', user);
   }
+  // tslint:disable-next-line: typedef
   logar(){
-  let ok : boolean = false
-  if(environment.token != ''){
+  let ok = false;
+  if ( environment.token !== ''){
     ok = true;
   }
   return ok;
