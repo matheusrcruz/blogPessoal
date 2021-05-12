@@ -1,8 +1,8 @@
-import { Router, ActivatedRoute } from '@angular/router';
-import { TemaService } from './../../service/tema.service';
-import { Tema } from './../../models/Tema';
-import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
+import { Tema } from './../../models/Tema';
+import { TemaService } from './../../service/tema.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tema-delete',
@@ -15,9 +15,9 @@ export class TemaDeleteComponent implements OnInit {
   idTema: number;
 
   constructor(
-    private temaService: TemaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private temaService: TemaService
   ) { }
 
   ngOnInit(){
@@ -38,6 +38,7 @@ export class TemaDeleteComponent implements OnInit {
   apagar() {
     this.temaService.deleteTema(this.idTema).subscribe(() => {
       alert('tema apagado com sucesso');
+      this.router.navigate(['/tema']);
     });
   }
 

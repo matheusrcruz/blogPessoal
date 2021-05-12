@@ -10,7 +10,9 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./entrar.component.css']
 })
 export class EntrarComponent implements OnInit {
+
   userLogin: UserLogin = new UserLogin();
+
   constructor(
     private auth: AuthService,
     private router: Router

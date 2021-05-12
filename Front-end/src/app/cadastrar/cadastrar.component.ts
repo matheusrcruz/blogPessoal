@@ -23,7 +23,7 @@ export class CadastrarComponent implements OnInit {
 
 //NG init Quando iniciar page faça
   ngOnInit(){
-    window.scroll(0,0);  
+    window.scroll(0,0);
   }
 
   tipoUser(event: any){
@@ -40,7 +40,7 @@ export class CadastrarComponent implements OnInit {
       this.auth.cadastrar(this.usuario).subscribe((resp: User)=>{
         this.usuario = resp;
         alert('Usuario cadastrado com sucesso!');
-        this.router.navigate(['/entrar'])
+        this.router.navigate(['/entrar']);
       })
     }
   }

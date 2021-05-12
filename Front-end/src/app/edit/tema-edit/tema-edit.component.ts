@@ -1,8 +1,9 @@
-import { environment } from 'src/environments/environment.prod';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TemaService } from './../../service/tema.service';
-import { Component, OnInit } from '@angular/core';
 import { Tema } from 'src/app/models/Tema';
+import { environment } from 'src/environments/environment.prod';
+import { TemaService } from './../../service/tema.service';
+
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tema-edit',
@@ -20,8 +21,12 @@ export class TemaEditComponent implements OnInit {
     ){}
 
   ngOnInit(){
+    window.scroll(0, 0);
+
     if (environment.token === ''){
-      this.router.navigate(['/entrar']);
+      alert('Seu token expirou, faça o login novamente.')
+      this.router.navigate(['/entrar'])
+
     }
     let id = this.route.snapshot.params['id'];
     this.findByidTema(id);
