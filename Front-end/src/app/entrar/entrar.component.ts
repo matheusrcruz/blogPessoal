@@ -10,9 +10,9 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./entrar.component.css']
 })
 export class EntrarComponent implements OnInit {
-  userLogin: UserLogin = new UserLogin(); 
+  userLogin: UserLogin = new UserLogin();
   constructor(
-    private auth: AuthService, 
+    private auth: AuthService,
     private router: Router
   ) { }
 
@@ -29,14 +29,11 @@ export class EntrarComponent implements OnInit {
       environment.foto = this.userLogin.foto
       environment.id = this.userLogin.id
 
-      console.log(environment.token, environment.nome, environment.foto)
-      
-
       this.router.navigate(['/inicio'])
     }, erro=>{
       if(erro.status == 500){
         alert('Usuario ou senha estão icorreto')
-      } 
+      }
     })
 
   }

@@ -1,4 +1,4 @@
-git import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { TemaService } from './../../service/tema.service';
 import { Tema } from './../../models/Tema';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +12,8 @@ import { environment } from 'src/environments/environment.prod';
 export class TemaDeleteComponent implements OnInit {
 
   tema: Tema = new Tema();
-  idTema: any;
+  idTema: number;
+
   constructor(
     private temaService: TemaService,
     private router: Router,
@@ -20,10 +21,13 @@ export class TemaDeleteComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-    if (environment.token === ''){
+    window.scroll(0,0)
+
+    if (environment.token == ''){
+      alert('Seu token expirou, faça o login novamente.');
       this.router.navigate(['/entrar']);
     }
-    this.idTema = this.route.snapshot.params.id;
+    this.idTema = this.route.snapshot.params['id'];
     this.findyByIdTema(this.idTema);
   }
   findyByIdTema(id: number){
