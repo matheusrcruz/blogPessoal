@@ -22,7 +22,7 @@ export class TemaComponent implements OnInit {
     // Comportamentos do component fica no init
   // tslint:disable-next-line: typedef
   ngOnInit(){
-    if (environment.token === ''){
+    if (environment.token == ''){
       alert('Sua sessão expirou faça login novamente');
       this.router.navigate( ['/entrar'] );
     }

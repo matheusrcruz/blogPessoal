@@ -18,11 +18,13 @@ export class PostagemService {
 
   };
 
-  getAllPostagens(): Observable<Postagem[]>{
-  return this.http.get<Postagem[]>('http://localhosst:8080/postagens', this.token);
+  getAllPostagens(): Observable<Postagem[]> {
+    return this.http.get<Postagem[]>(`${environment.server}/postagens`, this.token)
   }
+
   postPostagem(postagem: Postagem): Observable<Postagem>{
-    return this.http.post<Postagem>('http://localhost:8080/postagens', postagem, this.token)
+    return this.http.post<Postagem>(`${environment.server}/postagens`, postagem, this.token)
   }
+
 
 }
